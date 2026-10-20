@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小米 SU7 — C级科技豪华轿跑</title>
+<meta name="description" content="小米 SU7，C级科技豪华轿跑，21.99万起。黄金比例车身，为设计与速度而生。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wdth,wght@75..150,300..900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070c;
+  --surface:#0c1119;
+  --panel:#0d1b3a;
+  --line:rgba(148,178,255,.14);
+  --ink:#f2f5f9;
+  --muted:#9aa7b8;
+  --accent:#3d7cff;
+  --accent-ink:#0a0f1c;
+  --display:'TikTok Sans','Noto Sans SC',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --text:'TikTok Sans','Noto Sans SC',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.cover{width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px max(24px,calc((100vw - 1200px)/2));transition:background .3s,box-shadow .3s}
+.nav.is-solid{background:rgba(5,7,12,.94)}
+.nav__logo{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.02em}
+.nav__logo em{font-style:normal;color:var(--accent)}
+.nav__links{display:flex;gap:32px;font-size:14px;color:var(--muted)}
+.nav__links a{transition:color .2s}
+.nav__links a:hover{color:var(--ink)}
+.nav__cta{background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:14px;padding:9px 20px;border-radius:999px;transition:opacity .2s}
+.nav__cta:hover{opacity:.85}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden}
+.hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__veil{position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(180deg,rgba(5,7,12,0),rgba(5,7,12,.92)) /* taste-skill-ignore: scrim over photo */}
+.hero__body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 max(24px,calc((100vw - 1200px)/2)) 72px}
+.hero__eyebrow{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero__title{font-family:var(--display);font-weight:900;font-size:clamp(44px,7.2vw,104px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin-bottom:14px}
+.hero__sub{font-size:clamp(18px,2vw,22px);color:var(--muted);margin-bottom:30px;max-width:34em}
+.hero__actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--text);font-weight:700;font-size:15px;padding:14px 30px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;line-height:1}
+.btn--primary{background:var(--accent);color:var(--accent-ink)}
+.btn--primary:hover{transform:translateY(-1px);background:#5a92ff}
+.btn--ghost{background:rgba(242,245,249,.1);color:var(--ink)}
+.btn--ghost:hover{background:rgba(242,245,249,.18)}
+.hero__hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:1px;height:44px;background:rgba(242,245,249,.55);animation:hint 2.2s ease-in-out infinite}
+@keyframes hint{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ---------- sections ---------- */
+.section{padding:110px 0}
+.section__head{max-width:1200px;margin:0 auto;padding:0 24px 18px}
+.section__title{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,64px);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+.section__lead{max-width:1200px;margin:0 auto;padding:0 24px;font-size:19px;line-height:1.8;color:var(--muted)}
+.section__lead b{color:var(--ink);font-weight:700}
+.section__lead .accent{color:var(--accent)}
+
+/* ---------- intro: 黄金比例 ---------- */
+.intro{position:relative;padding:120px 0 90px;background:var(--surface)}
+.intro__head{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:end;max-width:1200px;margin:0 auto;padding:0 24px 64px}
+.intro__title{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,64px);line-height:1.08;text-wrap:balance}
+.intro__text{font-size:18px;line-height:1.9;color:var(--muted)}
+.intro__photos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:0 auto;padding:0 24px}
+.intro__photos figure{margin:0;position:relative;overflow:hidden;aspect-ratio:3/2;border-radius:16px;background:var(--surface)}
+.intro__photos img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.intro__photos figure:hover img{transform:scale(1.035)}
+.intro__photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;font-size:13.5px;color:var(--ink);background:rgba(5,7,12,.72);letter-spacing:.04em}
+
+/* ---------- design: 大图 + 参数 ---------- */
+.design{padding:120px 0;background:var(--surface)}
+.design__grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.design__media{position:relative;overflow:hidden;border-radius:20px;background:var(--bg)}
+.design__media img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s ease}
+.design__media:hover img{transform:scale(1.02)}
+.design__title{font-family:var(--display);font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:1.12;text-wrap:balance;margin-bottom:20px}
+.design__copy{font-size:17px;line-height:1.9;color:var(--muted);margin-bottom:34px}
+.design__stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:rgba(61,124,255,.08);border-radius:14px;padding:20px 22px}
+.stat__num{font-family:var(--display);font-weight:900;font-size:34px;line-height:1;letter-spacing:-.01em;color:var(--ink)}
+.stat__num em{font-style:normal;color:var(--accent)}
+.stat__unit{font-family:var(--display);font-weight:600;font-size:15px;color:var(--accent);margin-left:2px}
+.stat__label{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+/* ---------- performance: 夜景 + 大数字 ---------- */
+.perf{position:relative;padding:130px 0}
+.perf__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.perf__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,12,.35),rgba(5,7,12,.78) 88%) /* taste-skill-ignore: scrim over photo */}
+.perf__inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px}
+.perf__title{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,64px);line-height:1.08;text-wrap:balance;margin-bottom:14px}
+.perf__sub{font-size:17px;color:var(--muted);margin-bottom:52px;max-width:40em}
+.perf__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px}
+.perf__stat{background:rgba(5,7,12,.66);border-radius:16px;padding:30px 28px}
+.perf__num{font-family:var(--display);font-weight:900;font-size:clamp(40px,5vw,66px);line-height:1;letter-spacing:-.01em;color:var(--ink)}
+.perf__num em{font-style:normal;color:var(--accent)}
+.perf__label{font-size:14px;color:var(--muted);margin-top:10px}
+.perf__note{position:absolute;right:max(24px,calc((100vw - 1200px)/2));bottom:26px;font-size:14px;color:var(--muted);letter-spacing:.02em}
+
+/* ---------- details: 双图 ---------- */
+.details{background:var(--bg)}
+.details__grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.details__item{position:relative;overflow:hidden;border-radius:20px;background:var(--surface)}
+.details__item img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s ease}
+.details__item:hover img{transform:scale(1.025)}
+.details__tag{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 18px;background:rgba(5,7,12,.74)}
+.details__tag h3{font-family:var(--display);font-weight:700;font-size:21px}
+
+/* ---------- colors ---------- */
+.colors{background:var(--bg)}
+.colors__grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
+.colors__stage{position:relative;overflow:hidden;border-radius:20px;background:var(--surface);aspect-ratio:16/10}
+.colors__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.colors__slide.is-on{opacity:1}
+.colors__slide img{width:100%;height:100%;object-fit:cover}
+.colors__list{display:flex;flex-direction:column;gap:0}
+.color{display:flex;align-items:center;gap:16px;padding:17px 14px;border-radius:12px;border:0;background:transparent;color:var(--muted);font-family:var(--text);font-size:16px;text-align:left;cursor:pointer;transition:background .25s,color .25s}
+.color:hover{color:var(--ink)}
+.color.is-on{background:rgba(61,124,255,.12);color:var(--ink)}
+.color__swatch{width:34px;height:34px;border-radius:50%;flex:none}
+.color__name{font-weight:700;letter-spacing:.02em}
+.color__desc{font-size:13px;color:var(--muted);margin-left:auto}
+.color.is-on .color__desc{color:var(--accent)}
+
+/* ---------- pricing ---------- */
+.pricing{background:var(--surface)}
+.pricing__grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.price{position:relative;background:rgba(242,245,249,.04);border-radius:20px;padding:34px 30px 30px;display:flex;flex-direction:column}
+.price--max{background:rgba(61,124,255,.1)}
+.price__name{font-family:var(--display);font-weight:700;font-size:20px;margin-bottom:6px}
+.price__amount{font-family:var(--display);font-weight:900;font-size:38px;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.price__amount small{font-size:15px;color:var(--muted);font-weight:600;margin-left:4px}
+.price__list{list-style:none;margin:24px 0 30px;display:flex;flex-direction:column;gap:11px}
+.price__list li{font-size:14.5px;color:var(--muted);padding-left:22px;position:relative}
+.price__list li::before{content:'';position:absolute;left:2px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.price .btn{width:100%;margin-top:auto}
+.pricing__fine{max-width:1200px;margin:34px auto 0;padding:0 24px;font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ---------- cta ---------- */
+.cta{position:relative;padding:150px 0;overflow:hidden}
+.cta__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,12,.28),rgba(5,7,12,.86)) /* taste-skill-ignore: scrim over photo */}
+.cta__body{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px;text-align:center}
+.cta__title{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.8vw,66px);line-height:1.08;text-wrap:balance;margin-bottom:16px}
+.cta__sub{font-size:17px;color:var(--muted);margin-bottom:36px}
+
+/* ---------- footer ---------- */
+.footer{padding:66px 0 76px;background:var(--bg)}
+.footer__inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer__logo{font-family:var(--display);font-weight:900;font-size:18px}
+.footer__logo em{font-style:normal;color:var(--accent)}
+.footer__note{font-size:13px;color:var(--muted);line-height:1.7;max-width:560px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.is-in{opacity:1;transform:none}
+.reveal[data-i="1"]{transition-delay:.08s}
+.reveal[data-i="2"]{transition-delay:.16s}
+.reveal[data-i="3"]{transition-delay:.24s}
+.reveal[data-i="4"]{transition-delay:.32s}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero__eyebrow,.hero__title,.hero__sub,.hero__actions{opacity:0;transform:translateY(18px);animation:rise .8s ease forwards}
+  .hero__eyebrow{animation-delay:.05s}
+  .hero__title{animation-delay:.14s}
+  .hero__sub{animation-delay:.24s}
+  .hero__actions{animation-delay:.34s}
+}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav__links{display:none}
+  .intro__head{grid-template-columns:1fr;gap:24px}
+  .design__grid{grid-template-columns:1fr;gap:40px}
+  .colors__grid{grid-template-columns:1fr;gap:36px}
+  .perf__stats{grid-template-columns:repeat(3,1fr)}
+  .pricing__grid{grid-template-columns:1fr;gap:18px}
+  .details__grid{grid-template-columns:1fr}
+  .section{padding:80px 0}
+}
+@media (max-width:700px){
+  .hero__body{padding-bottom:52px}
+  .hero__actions .btn{width:100%;justify-content:center}
+  .hero__hint{display:none}
+  .intro__photos{grid-template-columns:1fr;gap:14px}
+  .intro__photos figure:nth-child(2){display:none}
+  .perf__stats{grid-template-columns:1fr}
+  .perf__note{position:static;margin-top:34px}
+  .section{padding:70px 0}
+  .section__title{font-size:32px}
+  .stat__num{font-size:28px}
+  .colors__stage{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="#top">SU7<em>·</em>小米汽车</a>
+  <div class="nav__links">
+    <a href="#design">设计</a>
+    <a href="#performance">性能</a>
+    <a href="#colors">配色</a>
+    <a href="#pricing">价格</a>
+  </div>
+  <a class="nav__cta" href="#cta">预约试驾</a>
+</nav>
+
+<main id="top">
+
+  <!-- hero -->
+  <section class="hero">
+    <img class="hero__media" src="https://aka.doubaocdn.com/s/9NuX2JMix8" alt="小米 SU7 左后 3/4 视角" fetchpriority="high">
+    <div class="hero__veil"></div>
+    <div class="hero__body">
+      <h1 class="hero__title">小米 SU7</h1>
+      <p class="hero__sub">C级科技豪华轿跑，21.99万起。黄金比例车身与空气动力学，为设计与速度而生。</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#cta">预约试驾</a>
+        <a class="btn btn--ghost" href="#design">了解设计</a>
+      </div>
+    </div>
+    <div class="hero__hint" aria-hidden="true"></div>
+  </section>
+
+  <!-- intro 黄金比例 -->
+  <section class="intro" id="design">
+    <div class="intro__head">
+      <h2 class="intro__title reveal">黄金比例车身</h2>
+      <p class="intro__text reveal" data-i="1">让型面从比例中生长。3倍轮轴比、2倍轮高比、1.36倍宽高比，SU7的车身姿态由一组克制而精确的比例决定。短前悬、长轴距、低重心，一眼即是轿跑。</p>
+    </div>
+    <div class="intro__photos">
+      <figure class="reveal" data-i="1"><img src="https://aka.doubaocdn.com/s/3NP5U5EhRJ" alt="SU7 正面" loading="lazy"><figcaption>正面 · 水滴大灯与无框车门</figcaption></figure>
+      <figure class="reveal" data-i="2"><img src="https://aka.doubaocdn.com/s/y0ANqCarLZ" alt="SU7 侧面" loading="lazy"><figcaption>侧面 · 3倍轮轴比</figcaption></figure>
+      <figure class="reveal" data-i="3"><img src="https://aka.doubaocdn.com/s/F1YchthqOv" alt="SU7 侧面与车尾" loading="lazy"><figcaption>车尾 · 贯穿式尾灯</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- design 大图 + 参数 -->
+  <section class="design">
+    <div class="design__grid">
+      <div class="design__media reveal"><img src="https://aka.doubaocdn.com/s/tKD5Cwi3j8" alt="SU7 车头设计细节" loading="lazy"></div>
+      <div class="reveal" data-i="1">
+        <h3 class="design__title">每一个型面，都在为气流让路</h3>
+        <p class="design__copy">28°前风挡、17°溜背、G4连续曲线。SU7把轿跑的优雅与超低风阻放进同一副车身。</p>
+        <div class="design__stats">
+          <div class="stat"><div class="stat__num">0.195<em class="stat__unit">Cd</em></div><div class="stat__label">风阻系数 · 量产车最低之一</div></div>
+          <div class="stat"><div class="stat__num">28<em class="stat__unit">°</em></div><div class="stat__label">前风挡倾角</div></div>
+          <div class="stat"><div class="stat__num">17<em class="stat__unit">°</em></div><div class="stat__label">溜背角度</div></div>
+          <div class="stat"><div class="stat__num">3<em class="stat__unit">×</em></div><div class="stat__label">轮轴比 · 2倍轮高比</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- performance 夜景大数字 -->
+  <section class="perf" id="performance">
+    <img class="perf__media" src="https://aka.doubaocdn.com/s/8uViV1mPxV" alt="SU7 夜景城市光轨" loading="lazy">
+    <div class="perf__veil"></div>
+    <div class="perf__inner">
+      <h3 class="perf__title reveal" data-i="1">设计即性能</h3>
+      <p class="perf__sub reveal" data-i="2">低风阻不是数字，是车身每一处型面让出的结果。</p>
+      <div class="perf__stats">
+        <div class="perf__stat reveal" data-i="1"><div class="perf__num" data-count="3.08"><em>3.08</em>s</div><div class="perf__label">SU7 Max 零百加速</div></div>
+        <div class="perf__stat reveal" data-i="2"><div class="perf__num" data-count="902"><em>902</em>km</div><div class="perf__label">CLTC 最长续航</div></div>
+        <div class="perf__stat reveal" data-i="3"><div class="perf__num" data-count="0.195"><em>0.195</em>Cd</div><div class="perf__label">风阻系数</div></div>
+      </div>
+      <p class="perf__note reveal" data-i="4">8组风道、17个风口，都为气流让路。</p>
+    </div>
+  </section>
+
+  <!-- details 双图 -->
+  <section class="details">
+    <div class="section__head">
+      <h3 class="section__title reveal" data-i="1">看得见的用心</h3>
+    </div>
+    <div class="details__grid">
+      <figure class="details__item reveal" data-i="1">
+        <img src="https://aka.doubaocdn.com/s/sWQtaTMkEz" alt="SU7 水滴大灯" loading="lazy">
+        <figcaption class="details__tag"><h3>水滴大灯 · 矩阵式 LED 全系标配</h3></figcaption>
+      </figure>
+      <figure class="details__item reveal" data-i="2">
+        <img src="https://aka.doubaocdn.com/s/pHh3YWCPe3" alt="SU7 驾驶座舱" loading="lazy">
+        <figcaption class="details__tag"><h3>驾驶中心轴座舱 · 为驾驶者而设</h3></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- colors 配色 -->
+  <section class="colors" id="colors">
+    <div class="section__head">
+      <h3 class="section__title reveal" data-i="1">每一种颜色，都是一次重新设计</h3>
+    </div>
+    <div class="colors__grid">
+      <div class="colors__stage reveal" data-i="1">
+        <figure class="colors__slide is-on"><img src="https://aka.doubaocdn.com/s/F1YchthqOv" alt="海湾蓝"></figure>
+        <figure class="colors__slide"><img src="https://aka.doubaocdn.com/s/OvEHn2UHCa" alt="雅灰"></figure>
+        <figure class="colors__slide"><img src="https://aka.doubaocdn.com/s/aUBbwwUs4h" alt="橄榄绿"></figure>
+        <figure class="colors__slide"><img src="https://aka.doubaocdn.com/s/5NWdin8d0u" alt="霞光紫"></figure>
+        <figure class="colors__slide"><img src="https://aka.doubaocdn.com/s/FYLfNywTLw" alt="熔岩橙"></figure>
+      </div>
+      <div class="colors__list reveal" data-i="2">
+        <button class="color is-on" data-color="0"><span class="color__swatch" style="background:#2f7fc1"></span><span class="color__name">海湾蓝</span><span class="color__desc">来自海湾的蓝</span></button>
+        <button class="color" data-color="1"><span class="color__swatch" style="background:#6d747e"></span><span class="color__name">雅灰</span><span class="color__desc">沉稳的灰</span></button>
+        <button class="color" data-color="2"><span class="color__swatch" style="background:#57683f"></span><span class="color__name">橄榄绿</span><span class="color__desc">旷野的绿</span></button>
+        <button class="color" data-color="3"><span class="color__swatch" style="background:#8f6b98"></span><span class="color__name">霞光紫</span><span class="color__desc">霞光中的紫</span></button>
+        <button class="color" data-color="4"><span class="color__swatch" style="background:#c05a2a"></span><span class="color__name">熔岩橙</span><span class="color__desc">熔岩的橙</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- pricing -->
+  <section class="pricing" id="pricing">
+    <div class="section__head">
+      <h3 class="section__title reveal" data-i="1">选择你的 SU7</h3>
+    </div>
+    <div class="pricing__grid">
+      <div class="price reveal" data-i="1">
+        <div class="price__name">SU7</div>
+                <div class="price__amount">¥219,900<small>起</small></div>
+        <ul class="price__list">
+          <li>CLTC 续航 720km</li>
+          <li>零百加速 5.28s</li>
+          <li>全系标配激光雷达</li>
+        </ul>
+        <a class="btn btn--ghost" href="#cta">预约试驾</a>
+      </div>
+      <div class="price reveal" data-i="2">
+        <div class="price__name">SU7 Pro</div>
+                <div class="price__amount">¥249,900<small>起</small></div>
+        <ul class="price__list">
+          <li>CLTC 续航 902km</li>
+          <li>零百加速 5.7s</li>
+          <li>全系标配激光雷达</li>
+        </ul>
+        <a class="btn btn--ghost" href="#cta">预约试驾</a>
+      </div>
+      <div class="price price--max reveal" data-i="3">
+        <div class="price__name">SU7 Max</div>
+                <div class="price__amount">¥303,900<small>起</small></div>
+        <ul class="price__list">
+          <li>零百加速 3.08s</li>
+          <li>CLTC 续航 835km</li>
+          <li>19英寸钻石轮毂 · 矩阵式大灯</li>
+        </ul>
+        <a class="btn btn--primary" href="#cta">预约试驾</a>
+      </div>
+    </div>
+    <p class="pricing__fine reveal" data-i="2">以上为2026款统一零售价，具体配置与进店价以官网为准。预约试驾后，将由小米汽车门店顾问与你联系。</p>
+  </section>
+
+  <!-- cta -->
+  <section class="cta" id="cta">
+    <img class="cta__bg" src="https://aka.doubaocdn.com/s/J1o2uol449" alt="旷野公路上飞驰的 SU7" loading="lazy">
+    <div class="cta__veil"></div>
+    <div class="cta__body">
+      <h3 class="cta__title reveal">下一程，交给 SU7</h3>
+      <p class="cta__sub reveal" data-i="1">预约试驾，感受黄金比例车身的第一公里。</p>
+      <a class="btn btn--primary reveal" data-i="2" href="#top">立即预约试驾</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">SU7<em>·</em>小米汽车</div>
+    <p class="footer__note">本页面为设计演示，车型参数与售价以小米汽车官网（xiaomiev.com）为准。© 2026 Xiaomi EV</p>
+  </div>
+</footer>
+
+<script>
+// nav solid
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('is-solid', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// reveal on scroll
+const io = new IntersectionObserver((es) => {
+  for (const e of es) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// color switcher
+const slides = document.querySelectorAll('.colors__slide');
+const colors = document.querySelectorAll('.color');
+colors.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const i = +btn.dataset.color;
+    slides.forEach((s, j) => s.classList.toggle('is-on', j === i));
+    colors.forEach((c) => c.classList.toggle('is-on', c === btn));
+  });
+});
+</script>
+</body>
+</html>
